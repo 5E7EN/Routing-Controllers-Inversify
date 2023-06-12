@@ -6,7 +6,7 @@ import { Request, Response, NextFunction } from 'express';
 @injectable()
 export class LoggingMiddleware implements ExpressMiddlewareInterface {
     use(request: Request, response: Response, next: NextFunction): void {
-        console.log('[xD]] Logged a visitor:', request.url);
+        console.log('[xD] Logged a visitor:', request.url);
 
         next();
     }
