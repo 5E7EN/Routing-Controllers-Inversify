@@ -2,11 +2,11 @@ import { injectable } from 'inversify';
 import { Middleware, ExpressMiddlewareInterface } from 'routing-controllers';
 import { Request, Response, NextFunction } from 'express';
 
-@Middleware({ type: 'after' })
+@Middleware({ type: 'before' })
 @injectable()
-export class ResponseMiddleware implements ExpressMiddlewareInterface {
+export class LoggingMiddleware implements ExpressMiddlewareInterface {
     use(request: Request, response: Response, next: NextFunction): void {
-        //console.log('flippin logged shiz after the fecht:', response.locals.response);
+        console.log('[xD]] Logged a visitor:', request.url);
 
         next();
     }

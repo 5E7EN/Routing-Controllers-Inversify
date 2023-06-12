@@ -18,7 +18,7 @@ export class ResponseInterceptor implements InterceptorInterface {
             action.response.status(status);
             return response;
         } else {
-            console.log('intersnepted some cool regular content:', content);
+            console.log('Intersnepted some cool regular content:', content);
         }
 
         return content;

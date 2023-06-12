@@ -11,7 +11,7 @@ export const bindings = new AsyncContainerModule(async (bind: inversify.interfac
     const databaseService = new DatabaseService();
     await databaseService.establishConnection();
 
-    // Bind databases
+    // Bind services
     bind<DatabaseService>(TYPES.DatabaseService).toConstantValue(databaseService);
 
     // Bind repos

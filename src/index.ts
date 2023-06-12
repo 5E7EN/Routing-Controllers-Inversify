@@ -7,20 +7,20 @@ import { bindings } from './config/ioc';
 import { InversifyAdapter } from './/config/inversify-adapter';
 
 (async () => {
-    // Create a new Inversify container and load its bindings
+    // Create a new Inversify container and load its bindings (async for database and stuff)
     const container = new Container();
     await container.loadAsync(bindings);
     const inversifyAdapter = new InversifyAdapter(container);
 
     useContainer(inversifyAdapter);
 
-    // creates express app, registers all controller routes and returns you express app instance
+    // Create express app, registering all controller routes, middlewares, and interceptors
     const app = createExpressServer({
         controllers: [path.join(__dirname + '/controllers/**/*{.ts,.js}')],
         middlewares: [path.join(__dirname + '/middlewares/**/*{.ts,.js}')],
         interceptors: [path.join(__dirname + '/interceptors/**/*{.ts,.js}')]
     });
 
-    // run express application on port 3000
-    app.listen(9999, () => console.log('listening'));
+    // Run express application on port 9999
+    app.listen(9999, () => console.log('Here for your enjoyment'));
 })();
