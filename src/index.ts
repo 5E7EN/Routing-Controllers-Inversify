@@ -4,7 +4,7 @@ import { createExpressServer, useContainer } from 'routing-controllers';
 import path from 'path';
 
 import { bindings } from './config/ioc';
-import { InversifyAdapter } from './/config/inversify-adapter';
+import { InversifyAdapter } from './config/inversify-adapter';
 
 (async () => {
     // Create a new Inversify container and load its bindings (async for database and stuff)
